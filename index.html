@@ -19,6 +19,7 @@
         height: 100%;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
+        background: #000;
       }
 
       body{
@@ -33,8 +34,14 @@
         display: block;
         color: inherit;
         text-decoration: none;
-	background: #000;
-	color: #FFF;
+	      background: #000;
+	      color: #FFF;
+        border-bottom: none;
+        border-right: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .itemWrapper:last-child{
+        border-right: none;
       }
 
       .item{
@@ -72,6 +79,10 @@
         margin: 0 auto;
       }
 
+      a{
+        color: inherit;
+      }
+
       footer{
         width: 100%;
         height: 60px;
@@ -85,13 +96,25 @@
       footer p{
         text-align: center;
         line-height: 60px;
-	color: #FFF;
+	      color: #FFF;
       }
 
       @media (max-width: 1600px) {
         .itemWrapper{
           width: 50%;
           height: 50%;
+        }
+
+        .itemWrapper:nth-child(1){
+          border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .itemWrapper:nth-child(1), .itemWrapper:nth-child(2){
+          border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .itemWrapper:nth-child(3){
+          border-right: 1px solid rgba(255,255,255,0.2);
         }
       }
 
@@ -103,6 +126,7 @@
         .itemWrapper{
           width: 100%;
           height: 100%;
+          border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         .itemWrapper:hover .item{
@@ -115,6 +139,10 @@
 
         footer{
           position: fixed;
+        }
+
+        .itemWrapper:nth-child(1), .itemWrapper:nth-child(3){
+          border-right: none;
         }
       }
     </style>
