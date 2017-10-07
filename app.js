@@ -42,9 +42,8 @@ function createSlideshow()
     document.body.appendChild(database[i]);
   }
 
-  var audio = new Audio(database[1].getAttribute('data-sound'));
+  var audio = new Audio(database[0].getAttribute('data-sound'));
   audio.play();
-  
 }
 
 document.addEventListener('touchstart', handleTouchStart, false);
