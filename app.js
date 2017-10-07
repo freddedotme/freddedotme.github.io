@@ -44,6 +44,7 @@ function createSlideshow()
 
   var audio = new Audio(database[1].getAttribute('data-sound'));
   audio.play();
+  
 }
 
 document.addEventListener('touchstart', handleTouchStart, false);
