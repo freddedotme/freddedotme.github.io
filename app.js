@@ -41,6 +41,9 @@ function createSlideshow()
     database[i].style.width = ((1/database.length) * 100) + "%";
     document.body.appendChild(database[i]);
   }
+
+  var audio = new Audio(database[1].getAttribute('data-sound'));
+  audio.play();
 }
 
 document.addEventListener('touchstart', handleTouchStart, false);
