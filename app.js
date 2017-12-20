@@ -1,85 +1,76 @@
-var database = [];
-var index = 0;
-var offset = 0;
+var body = document.body;
+var prefix = 'guest@vps:~$ ';
 
-var requestURL = 'https://api.myjson.com/bins/17h2hh';
-var request = new XMLHttpRequest();
+var messages = [
+  {type:'server', message:'Linux Ubuntu 16.04 LTS'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'The programs included with the Ubuntu system are free software; the exact distribution terms for each program are described in the individual files in /usr/share/doc/*/copyright.<br/>'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Last login: Mon Dec 24 13:37:00 2017 from 42.42.42.42'},
+  {type:'server', message:'<br/>'},
+  {type:'client', message:'cat docs/curriculum-vitae3.1/draft1.txt'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'  _____             _          __                  _ __          '},
+  {type:'server', message:' / ___/_ __________(_)_____ __/ /_ ____ _    _  __(_) /____ ____ '},
+  {type:'server', message:'/ /__/ // / __/ __/ / __/ // / / // /  \' \\  | |/ / / __/ _ `/ -_)'},
+  {type:'server', message:'\\___/\\_,_/_/ /_/ /_/\\__/\\_,_/_/\\_,_/_/_/_/  |___/_/\\__/\\_,_/\\__/ '},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Name: Fredrik Andersson      Age: 24      Nationality: Swedish'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Languages: Swedish (native), English (fluent)'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'-------------'},
+  {type:'server', message:'C U R R E N T'},
+  {type:'server', message:'-------------'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Programme: Bachelor in Computer Science'},
+  {type:'server', message:'Location: Uppsala University, Uppsala, Sweden'},
+  {type:'server', message:'Duration: 16\' - current'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'-------'},
+  {type:'server', message:'P A S T'},
+  {type:'server', message:'-------'},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'Programme: Mobile Design and Development'},
+  {type:'server', message:'Location: Hyper Island, Karlskrona, Sweden'},
+  {type:'server', message:'Duration: 13\' - 14\''},
+  {type:'server', message:'<br/>'},
+  {type:'server', message:'More information coming soon.'},
+];
 
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+function animateCharacter(p, message, cIndex, tIndex){
+  var c = message.charAt(cIndex);
+  p.innerHTML += c;
 
-request.onload = function() {
-  var response = request.response;
-  var slides = response['slides'];
-
-  for(var i = 0; i < slides.length; i++)
-  {
-    var slide = slides[i];
-    createSlide(slide['image'], slide['sound']);
+  if(cIndex < message.length){
+    setTimeout(function(){ animateCharacter(p, message, cIndex + 1, tIndex) }, 35);
+  }else{
+    setTimeout(function(){ type(tIndex + 1) }, 100);
   }
-
-  createSlideshow();
 }
 
-function createSlide(imageURL, soundURL)
-{
-  var entry = document.createElement('div');
+function animateMessage(tIndex){
+  var p = document.createElement('p');
+  p.innerHTML = prefix;
+  body.appendChild(p);
 
-  entry.style.backgroundImage  = 'url(\'' + imageURL + '\')';
-  entry.setAttribute('data-sound', soundURL);
-
-  database.push(entry);
+  animateCharacter(p, messages[tIndex]['message'], 0, tIndex);
 }
 
-function createSlideshow()
-{
-  document.body.style.width = (database.length * 100) + "%";
+function type(tIndex){
+  if(tIndex >= messages.length) return;
 
-  for(var i = 0; i < database.length; i++)
-  {
-    database[i].style.width = ((1/database.length) * 100) + "%";
-    document.body.appendChild(database[i]);
+  if(messages[tIndex]['type'] == 'client'){
+    animateMessage(tIndex);
+  }else{
+    var p = document.createElement('p');
+    p.innerHTML = messages[tIndex]['message'];
+    body.appendChild(p);
+
+    type(tIndex + 1);
   }
-
-  var audio = new Audio(database[0].getAttribute('data-sound'));
-  audio.play();
 }
 
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-
-var xDown = null;
-var yDown = null;
-
-function handleTouchStart(evt) {
-  xDown = evt.touches[0].clientX;
-  yDown = evt.touches[0].clientY;
-};
-
-function handleTouchMove(evt) {
-  if ( ! xDown || ! yDown ) {
-    return;
-  }
-
-  var xUp = evt.touches[0].clientX;
-  var yUp = evt.touches[0].clientY;
-
-  var xDiff = xDown - xUp;
-  var yDiff = yDown - yUp;
-
-  if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-    if ( xDiff > 0 ) {
-      index--;
-      offset -= (1/database.length) * 100;
-    } else {
-      index++;
-      offset += (1/database.length) * 100;
-    }
-
-    document.body.style.transform = 'translate3d(' + offset + '%, 0, 0)';
-  }
-
-  xDown = null;
-  yDown = null;
-};
+type(0);
