@@ -23,8 +23,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Prata', serif;
   color:       #fff;
+  font-family:    'Questrial', sans-serif;
 }
 
 h1 {
@@ -33,9 +33,9 @@ h1 {
 
 h3 {
   font-size:      18px;
-  color:          rgba(255, 255, 255, 0.85);
+  color:          rgba(255, 255, 255, 0.75);
   letter-spacing: 4.5px;
-  font-family:    'Questrial', sans-serif;
+
   text-transform: uppercase;
 }
 
@@ -46,11 +46,12 @@ h4 {
   -ms-transition:     color 0.5s ease;
   -o-transition:      color 0.5s ease;
   transition:         color 0.5s ease;
+  font-family: 'Prata', serif;
 }
 
 p {
   font-family: 'Questrial', sans-serif;
-  color:       rgba(255, 255, 255, 0.75);
+  color:       rgba(255, 255, 255, 0.65);
   line-height: 1.4;
   font-size:   16px;
 }
