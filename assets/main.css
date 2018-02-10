@@ -24,7 +24,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color:       #fff;
-  font-family:    'Questrial', sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 
 h1 {
@@ -46,7 +46,7 @@ h4 {
   -ms-transition:     color 0.5s ease;
   -o-transition:      color 0.5s ease;
   transition:         color 0.5s ease;
-  font-family: 'Prata', serif;
+  font-family:        'Prata', serif;
 }
 
 p {
@@ -121,6 +121,7 @@ a:hover, a:hover h4 {
   height:   100%;
   float:    left;
   overflow: scroll;
+  position: relative;
 }
 
 .project img {
@@ -142,6 +143,41 @@ a:hover, a:hover h4 {
   clear:      both;
   float:      left;
   margin-top: 20px;
+}
+
+.projects:hover .scroll {
+  opacity: 0;
+}
+
+.scroll {
+  position:           absolute;
+  width:              70px;
+  height:             70px;
+  background:         rgba(0, 0, 0, 0.75);
+  border-radius:      50%;
+  top:                50%;
+  left:               50%;
+  text-align:         center;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition:    opacity 0.5s ease;
+  -ms-transition:     opacity 0.5s ease;
+  -o-transition:      opacity 0.5s ease;
+  transition:         opacity 0.5s ease;
+  -webkit-transform:  translate(-50%, -50%);
+  -moz-transform:     translate(-50%, -50%);
+  -ms-transform:      translate(-50%, -50%);
+  -o-transform:       translate(-50%, -50%);
+  transform:          translate(-50%, -50%);
+}
+
+.scroll img {
+  width:      25px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 1200px) {
@@ -172,6 +208,10 @@ a:hover, a:hover h4 {
 
   .me, .projects {
     width: 100%;
+  }
+
+  .scroll {
+    display: none;
   }
 }
 
