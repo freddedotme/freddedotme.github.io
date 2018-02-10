@@ -1,0 +1,187 @@
+* {
+  margin:                 0;
+  padding:                0;
+  box-sizing:             border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  width:    100%;
+  height:   100%;
+  overflow: auto;
+}
+
+body {
+  max-width:  1200px;
+  padding:    80px;
+  background: #000000;
+  background: -moz-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
+  background: -webkit-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
+  background: linear-gradient(135deg, #000000 0%, #4e4e4e 100%);
+  filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#4e4e4e', GradientType=1);
+  margin:     0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Prata', serif;
+  color:       #fff;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size:      18px;
+  color:          rgba(255, 255, 255, 0.85);
+  letter-spacing: 4.5px;
+  font-family:    'Questrial', sans-serif;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size:          20px;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition:    color 0.5s ease;
+  -ms-transition:     color 0.5s ease;
+  -o-transition:      color 0.5s ease;
+  transition:         color 0.5s ease;
+}
+
+p {
+  font-family: 'Questrial', sans-serif;
+  color:       rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+  font-size:   16px;
+}
+
+a {
+  color:              inherit;
+  text-decoration:    underline;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition:    color 0.5s ease;
+  -ms-transition:     color 0.5s ease;
+  -o-transition:      color 0.5s ease;
+  transition:         color 0.5s ease;
+}
+
+a:hover, a:hover h4 {
+  color: #FFDB95;
+}
+
+.me, .projects {
+  padding: 20px;
+}
+
+/* me ----------------------------------------------------------------------------------------------------------------*/
+
+.me {
+  width: 33.3333%;
+  float: left;
+}
+
+.me img {
+  width:         70px;
+  height:        70px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+
+.me h1 {
+  margin-bottom: 20px;
+}
+
+.me ul {
+  list-style: none;
+  margin-top: 40px;
+  overflow:   hidden;
+}
+
+.me ul li {
+  float: left;
+}
+
+.me ul a {
+  float:        left;
+  margin-right: 20px;
+}
+
+.me ul img {
+  width:         30px;
+  height:        30px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+/* projects ----------------------------------------------------------------------------------------------------------*/
+
+.projects {
+  width:    66.6666%;
+  height:   100%;
+  float:    left;
+  overflow: scroll;
+}
+
+.project img {
+  width:  100%;
+  margin: 40px 0 20px 0;
+}
+
+.project h4 {
+  float: left;
+}
+
+.project .tags {
+  float:       right;
+  color:       rgba(255, 255, 255, 0.5);
+  line-height: 30px;
+}
+
+.projects .description {
+  clear:      both;
+  float:      left;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .me {
+    width: 40%;
+  }
+
+  .projects {
+    width: 60%;
+  }
+
+  .project .tags {
+    float: left;
+    clear: both;
+  }
+}
+
+@media (max-width: 750px) {
+  html, body {
+    height: auto;
+  }
+
+  .me, .projects {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding: 0px;
+  }
+}
