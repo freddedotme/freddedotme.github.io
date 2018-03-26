@@ -12,14 +12,11 @@ html, body {
 }
 
 body {
-  max-width:  1200px;
-  padding:    80px;
   background: #000000;
   background: -moz-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
   background: -webkit-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
   background: linear-gradient(135deg, #000000 0%, #4e4e4e 100%);
   filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#4e4e4e', GradientType=1);
-  margin:     0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,15 +67,21 @@ a:hover, a:hover h4 {
   color: #FFDB95;
 }
 
-.me, .projects {
-  padding: 20px;
-}
-
 /* me ----------------------------------------------------------------------------------------------------------------*/
 
 .me {
-  width: 33.3333%;
-  float: left;
+  width:             100%;
+  max-width:         480px;
+  text-align:        center;
+  margin:            0 auto;
+  padding:           40px 20px;
+  position:          relative;
+  top:               50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  -o-transform:      translateY(-50%);
+  transform:         translateY(-50%);
 }
 
 .me img {
@@ -94,7 +97,8 @@ a:hover, a:hover h4 {
 
 .me ul {
   list-style: none;
-  margin-top: 40px;
+  margin:     40px auto 0 auto;
+  display:    inline-block;
   overflow:   hidden;
 }
 
@@ -107,6 +111,10 @@ a:hover, a:hover h4 {
   margin-right: 20px;
 }
 
+.me ul li:last-child a {
+  margin-right: 0;
+}
+
 .me ul img {
   width:         30px;
   height:        30px;
@@ -114,115 +122,13 @@ a:hover, a:hover h4 {
   margin-bottom: 0px;
 }
 
-/* projects ----------------------------------------------------------------------------------------------------------*/
-
-.projects {
-  width:    66.6666%;
-  height:   100%;
-  float:    left;
-  overflow: scroll;
-  position: relative;
-}
-
-.project img {
-  width:  100%;
-  margin: 40px 0 20px 0;
-}
-
-.project h4 {
-  float: left;
-}
-
-.project .tags {
-  float:       right;
-  color:       rgba(255, 255, 255, 0.5);
-  line-height: 30px;
-}
-
-.projects .description {
-  clear:      both;
-  float:      left;
-  margin-top: 20px;
-}
-
-.projects:hover .scroll {
-  opacity: 0;
-}
-
-.scroll {
-  position:           absolute;
-  width:              70px;
-  height:             70px;
-  background:         rgba(0, 0, 0, 0.75);
-  border-radius:      50%;
-  top:                50%;
-  left:               50%;
-  text-align:         center;
-  -webkit-transition: opacity 0.5s ease;
-  -moz-transition:    opacity 0.5s ease;
-  -ms-transition:     opacity 0.5s ease;
-  -o-transition:      opacity 0.5s ease;
-  transition:         opacity 0.5s ease;
-  -webkit-transform:  translate(-50%, -50%);
-  -moz-transform:     translate(-50%, -50%);
-  -ms-transform:      translate(-50%, -50%);
-  -o-transform:       translate(-50%, -50%);
-  transform:          translate(-50%, -50%);
-}
-
-.scroll img {
-  width:      25px;
-  text-align: center;
-  margin-top: 16px;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 1200px) {
-  body {
-    padding: 40px;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-height: 570px) {
   .me {
-    width: 40%;
-  }
-
-  .projects {
-    width: 60%;
-  }
-
-  .project .tags {
-    float: left;
-    clear: both;
-  }
-}
-
-@media (max-width: 750px) {
-  html, body {
-    height: auto;
-  }
-
-  .me, .projects {
-    width: 100%;
-  }
-
-  .scroll {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 320px) {
-  body {
-    padding: 0px;
+    top:               0;
+    -webkit-transform: translateY(0);
+    -moz-transform:    translateY(0);
+    -ms-transform:     translateY(0);
+    -o-transform:      translateY(0);
+    transform:         translateY(0);
   }
 }
