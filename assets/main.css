@@ -3,6 +3,7 @@
   padding:                0;
   box-sizing:             border-box;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Questrial', sans-serif;
 }
 
 html, body {
@@ -12,50 +13,26 @@ html, body {
 }
 
 body {
-  background: #000000;
-  background: -moz-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
-  background: -webkit-linear-gradient(-45deg, #000000 0%, #4e4e4e 100%);
-  background: linear-gradient(135deg, #000000 0%, #4e4e4e 100%);
-  filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#4e4e4e', GradientType=1);
+  background: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:       #fff;
+  color:       #000;
   font-family: 'Questrial', sans-serif;
 }
 
-h1 {
+h1{
   font-size: 24px;
 }
 
-h3 {
-  font-size:      18px;
-  color:          rgba(255, 255, 255, 0.75);
-  letter-spacing: 4.5px;
-
-  text-transform: uppercase;
-}
-
-h4 {
-  font-size:          20px;
-  -webkit-transition: color 0.5s ease;
-  -moz-transition:    color 0.5s ease;
-  -ms-transition:     color 0.5s ease;
-  -o-transition:      color 0.5s ease;
-  transition:         color 0.5s ease;
-  font-family:        'Prata', serif;
-}
-
 p {
-  font-family: 'Questrial', sans-serif;
-  color:       rgba(255, 255, 255, 0.65);
+  color:       rgba(0, 0, 0, 0.65);
   line-height: 1.4;
   font-size:   16px;
 }
 
 a {
   color:              inherit;
-  text-decoration:    underline;
   -webkit-transition: color 0.5s ease;
   -moz-transition:    color 0.5s ease;
   -ms-transition:     color 0.5s ease;
@@ -88,11 +65,10 @@ a:hover, a:hover h4 {
   width:         70px;
   height:        70px;
   border-radius: 50%;
-  margin-bottom: 40px;
 }
 
 .me h1 {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .me ul {
@@ -107,28 +83,17 @@ a:hover, a:hover h4 {
 }
 
 .me ul a {
-  float:        left;
-  margin-right: 20px;
+  float:           left;
+  margin-right:    20px;
+  color:           rgba(0,0,255,0.75);
+  font-size:       20px;
+  text-decoration: none
+}
+
+.me ul a:hover {
+  color:           rgba(0,0,255,1);
 }
 
 .me ul li:last-child a {
   margin-right: 0;
-}
-
-.me ul img {
-  width:         30px;
-  height:        30px;
-  border-radius: 0px;
-  margin-bottom: 0px;
-}
-
-@media (max-height: 570px) {
-  .me {
-    top:               0;
-    -webkit-transform: translateY(0);
-    -moz-transform:    translateY(0);
-    -ms-transform:     translateY(0);
-    -o-transform:      translateY(0);
-    transform:         translateY(0);
-  }
 }
